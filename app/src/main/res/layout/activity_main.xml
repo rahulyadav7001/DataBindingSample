@@ -5,10 +5,15 @@
 
     <data>
 
-        <variable
+        <import type="android.view.View" />
 
+        <variable
             name="userDO"
             type="com.ryandro.databindingsample.dataobjects.UserDO" />
+
+        <variable
+            name="presenter"
+            type="com.ryandro.databindingsample.MainActivity" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -22,6 +27,7 @@
             android:layout_height="wrap_content"
             android:text='@{ "First Name: " + userDO.userName}'
             android:textSize="20sp"
+            android:visibility="@{ userDO.userName!=null ? View.VISIBLE : View.GONE }"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -32,9 +38,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text='@{ "Last Name: " + userDO.userLastName}'
+            android:text='@{ "Last Name: " + userDO.userLastName }'
             android:textSize="20sp"
+            android:visibility="@{ userDO.userLastName!=null ? View.VISIBLE : View.GONE }"
             app:layout_constraintTop_toBottomOf="@+id/tv_first" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="@{ presenter :: onButtonClick }"
+            android:text="Click Me!!"
+            app:layout_constraintTop_toBottomOf="@+id/tv_second" />
+
 
     </android.support.constraint.ConstraintLayout>
 </layout>
