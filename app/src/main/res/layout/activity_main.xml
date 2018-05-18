@@ -13,7 +13,7 @@
 
         <variable
             name="presenter"
-            type="com.ryandro.databindingsample.MainActivity" />
+            type="com.ryandro.databindingsample.MainActivity.myClickHandler" />
     </data>
 
     <android.support.constraint.ConstraintLayout
